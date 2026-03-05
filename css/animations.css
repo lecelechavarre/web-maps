@@ -1,0 +1,165 @@
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(0.95); 
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: rotate(-45deg) translateY(0); 
+    }
+    50% { 
+        transform: rotate(-45deg) translateY(-10px); 
+    }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation Classes */
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Loader Screen */
+.loader-container {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: var(--z-loader);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    transition: opacity 600ms ease, visibility 600ms;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+}
+
+.loader-brand i {
+    color: var(--primary);
+    font-size: var(--text-2xl);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: var(--radius-full);
+    transition: width 300ms ease;
+    box-shadow: var(--glow-primary);
+}
+
+/* Marker Animation */
+.custom-marker .marker-pin {
+    animation: bounce 1s ease-in-out;
+}
+
+/* Toast Animations */
+.toast {
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Sheet Animations */
+.sheet.active {
+    animation: scaleIn 0.4s ease-out;
+}
+
+/* Result Item Hover */
+.result-item {
+    transition: all var(--transition-fast);
+}
+
+.result-item:hover {
+    transform: translateX(4px);
+}
