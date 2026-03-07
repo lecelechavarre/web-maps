@@ -155,11 +155,12 @@
     animation: scaleIn 0.4s ease-out;
 }
 
-/* Result Item Hover */
+/* Result Item Hover */ 
 .result-item {
     transition: all var(--transition-fast);
 }
 
 .result-item:hover {
     transform: translateX(4px);
+
 }
